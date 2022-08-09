@@ -18,11 +18,24 @@
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <form class="container text-center login d-flex flex-column" action="./index.html">
+      <img src="./img/login.png" alt="">
+      <h4>Inicio de sesión</h4>
+      <label for="email">Email</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Email" aria-label="email" id="email" aria-describedby="basic-addon1" required>
       </div>
-    </div>
+      <label for="password">Contraseña</label>
+      <div class="input-group mb-1">
+        <input type="password" class="form-control" placeholder="Contraseña" aria-label="contrasena" aria-describedby="basic-addon1" id="password" required>
+      </div>
+      <div class="mb-3">
+        <input type="checkbox" id="checkbox" onclick="passwordShow()">
+        <label for="checkbox">Show Password</label> 
+      </div>
+      
+      <button type="submit" id="login-button" class="btn btn-primary">Ingresar</button>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
