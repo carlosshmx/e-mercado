@@ -189,26 +189,30 @@ a.custom-card:hover {
   color: orange;
 }
 
-.login{
-  width: 350px;
+.login-image{
+ width: 40rem;
+ 
 }
 
-.login h4{
-  font-weight: bold;
+i{
+  font-size: 1.5rem;
+  background-color: #0087F7;
+  padding: 6px;
+  border-radius: 50px;
+  color: #fff;
+  margin: 0 0.2rem;
 }
 
-.login img{
-  width: 300px;
-  margin-bottom: 30px;
+.hr-or{
+  width: 100%;
 }
 
-.form-control:focus{
+.form-control:focus, .form-check-input:focus{
   outline: none;
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
 }
 
-.login button{
-  width: 150px;
-  margin: 0 auto;
+.complete-input{
+  visibility: hidden;
 }
