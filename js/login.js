@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     }
     if(allwhite){
-      window.location.href = "../home.html";
+      window.location.href = "./home.html";
     }
   });
   
