@@ -185,6 +185,18 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
+.container {
+  max-width: 960px;
+}
+
+.alert {
+  position: fixed;
+  top: 80px;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 .checked {
   color: orange;
 }

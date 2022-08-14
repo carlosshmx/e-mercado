@@ -24,7 +24,7 @@
         <img class="img-fluid login-image" src="./img/login.png" alt="">
       </div>
       <div class="flex-fill row justify-content-center mt-2">
-        <div class="col-sm-12 col-lg-10 col-xxl-8">
+        <div class="col-sm-12 col-lg-10 col-xxl-10">
           <div class="d-flex justify-content-center mb-3">
             <p class="my-auto me-2">Login with:</p>
             <a href=""><i class="fa-brands fa-google"></i></a>
@@ -51,14 +51,28 @@
               <input class="form-check-input me-2" type="checkbox" onclick="passwordShow()" id="show-pass">
               <label for="show-pass">Show password</label> 
             </div>
-            <div class="d-flex justify-content-center  justify-content-md-end">
+            <div class="d-grid mt-3 mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
+            <label for="">New user? <a href="./register.html">Create an account</a></label>
           </form>
         </div>
       </div>
     </div>
+
+    <div class="alert_login">
+      <!-- <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+        <p>Datos guardados correctamente</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="restore()" ></button>
+      </div> -->
   
+      <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+        <p>Incorrect username or password</p>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="restore_alert_login()"></button> -->
+      </div>
+    </div>
+    
+
   </main>
 
 
@@ -74,6 +88,8 @@
     </div>
   </footer>
   <script src="js/login.js"></script>
+  <script src="./js/validation.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
