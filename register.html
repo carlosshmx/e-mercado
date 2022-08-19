@@ -24,29 +24,34 @@
               <h1 class="mb-3">Sing up</h1>
               <hr class="border border-primary border-1 opacity-75 hr-or">
               <div class="row g-3">
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="nombre" class="form-label">Name</label>
                   <input type="text" class="form-control" id="nombre">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="apellido" class="form-label">Last name</label>
                   <input type="text" class="form-control" id="apellido">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-12">
+                <div class="col-12 input-container">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" class="form-control" id="email">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="password1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password1">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="password2" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control" id="password2">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
                 <div class="form-check">
@@ -89,6 +94,7 @@
 
   <script src="./js/register.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="./js/alerts.js"></script>
 </body>
 
 </html>

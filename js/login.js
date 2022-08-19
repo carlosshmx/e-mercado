@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             inputcont.querySelector("p").style.visibility = "visible";
             input.style.border = "solid red 3px";
             allwrote = false;
-            alert_msj.classList.add("show");
-            setTimeout(()=> alert_msj.classList.remove("show"), 3000)
+            showAlertError();
+            hiddeAlertError();
         }
         else {
             inputcont.querySelector("p").style.visibility = "hidden";
