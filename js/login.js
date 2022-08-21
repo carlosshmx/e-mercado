@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     let inputcontainers = document.querySelectorAll(".input-container");
     let allwrote = true;
-    let alert_msj = document.getElementById("alert-danger");
 
     for(inputcont of inputcontainers){
       let input = inputcont.querySelector(".form-control")
@@ -37,6 +36,13 @@ function passwordShow(){
     x.type = "password";
   }
 }
+
+
+
+
+
+
+
 
 
 

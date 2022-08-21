@@ -22,12 +22,19 @@
 <body>
   <main>
     <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+
+    
     <div class="container p-4 d-flex flex-wrap justify-content-center align-items-center mt-5">
-      <div class="">
+
+      <!-- imagen de logo izquierdo en inicio de sesión -->
+      <div>
         <img class="img-fluid login-image" src="./img/login.png" alt="">
       </div>
+
+      <!-- contenedor derecho de opciones inicio de sesión -->
       <div class="flex-fill row justify-content-center mt-2">
         <div class="col-12">
+
           <div class="d-flex justify-content-center mb-3">
             <p class="my-auto me-2">Login with:</p>
             <a href=""><i class="fa-brands fa-google"></i></a>
@@ -39,25 +46,31 @@
             <p class="my-auto ms-1 me-1 fw-bold">Or</p>
             <hr class="border border-primary border-1 opacity-75 hr-or">
           </div>
+
+          <!-- formulario de inputs de usuario, contraseña y boton login -->
           <form>
             <div class="input-container">
               <label for="usename" class="form-label">Username</label>
               <input type="text" class="form-control" id="username" placeholder="Username">
               <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
             </div>
+
             <div class="input-container">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password">
               <p class="d-flex justify-content-end mb-0" style="color: red; font-size: small;visibility: hidden;">Complete</p>
             </div>
+
             <div class="mb-1">
               <input class="form-check-input me-2" type="checkbox" onclick="passwordShow()" id="show-pass">
               <label for="show-pass">Show password</label> 
             </div>
+
             <div class="d-grid mt-3 mb-3">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
             <label for="">New user? <a href="./register.html">Create an account</a></label>
+
           </form>
         </div>
       </div>
@@ -71,8 +84,6 @@
     
   </main>
 
-
-  
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -89,8 +100,16 @@
   <script src="js/bootstrap.bundle.min.js"></script>
  
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

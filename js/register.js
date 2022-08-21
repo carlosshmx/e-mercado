@@ -27,6 +27,8 @@ function validate(){
     
         if(contrasena1.length >= 6 && contrasena1 == contrasena2 && check){
             showAlertSuccess();
+            showSpinner();
+            
             hiddeAlertSuccess();                                            //simulacion de conexion con servidor
             setTimeout(()=>window.location.href = "./home.html", 3000);     //luego de espera redirecciona al home
         }else{
