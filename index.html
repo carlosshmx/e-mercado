@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="google-signin-client_id" content="383695513383-n21tan8r2t94pd4p0a1pbclaf5a08skc.apps.googleusercontent.com">
+  <!-- <meta name="google-signin-client_id" content="383695513383-n21tan8r2t94pd4p0a1pbclaf5a08skc.apps.googleusercontent.com"> -->
   <title>eMercado - Inicio de sesión</title>
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 <body>
   <main>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
     <div class="container p-4 d-flex flex-wrap justify-content-center align-items-center mt-5">
       <div class="">
         <img class="img-fluid login-image" src="./img/login.png" alt="">
@@ -83,17 +83,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-
-  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
-  <script>
-  window.onLoadCallback = function(){
-  gapi.auth2.init({
-      client_id: '383695513383-n21tan8r2t94pd4p0a1pbclaf5a08skc.apps.googleusercontent.com'
-    });
-  }
-  </script>
-  <script src="https://apis.google.com/js/api.js" ></script>
-
+ 
   <script src="js/login.js"></script>
   <script src="./js/alerts.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
@@ -103,11 +93,29 @@
 </html>
 
 
-  <!-- <script src="https://apis.google.com/js/api.js" ></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-  <script>function init() {
-    gapi.load('auth2', function() {
-      /* Ready. Make a call to gapi.auth2.init or some other API */
+
+
+<!-- <script src="https://apis.google.com/js/api.js" ></script>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
     });
-  }</script> -->
+  }
+
+  function onLoad() {
+    gapi.load('auth2', function() {
+      gapi.auth2.init();
+    });
+  }
+</script>
+<a href="#" onclick="signOut();">Sign out</a>
+
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> -->
+
+
+
+  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  }</script>  -->
