@@ -83,8 +83,15 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  
-  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+  <script>
+  window.onLoadCallback = function(){
+  gapi.auth2.init({
+      client_id: '383695513383-n21tan8r2t94pd4p0a1pbclaf5a08skc.apps.googleusercontent.com'
+    });
+  }
+  </script>
   <script src="https://apis.google.com/js/api.js" ></script>
 
   <script src="js/login.js"></script>
