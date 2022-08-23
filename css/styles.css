@@ -215,6 +215,12 @@ a.custom-card:hover {
   margin: 0 0.2rem;
 }
 
+nav i{
+  font-size: 1.5rem;
+
+
+}
+
 .hr-or{
   width: 100%;
 }

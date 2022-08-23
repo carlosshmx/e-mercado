@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6e71113311.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,7 +19,28 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse flex-column" id="navbarNav">
+
+        <!-- barra superior -->
+        <ul class="navbar-nav w-100 upper-bar row align-items-center">
+          <li class="nav-item col-md-12 col-lg-2 p-md-0">
+            <a class="nav-link active fs-4 fw-bold" href="home.html">e-mercado</a>
+          </li>
+          <li class="nav-item col-md-12 col-lg-6">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </li>
+          <li class="nav-item col-md-8  col-lg-3">
+            
+          </li>
+          <li class="nav-item d-flex justify-content-end col-md-4 col-lg-1">
+            <a class="nav-link active" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+
+        <!-- barra inferior -->
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
             <a class="nav-link active" href="home.html">Inicio</a>
@@ -29,10 +51,8 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            
-          </li>
         </ul>
+
       </div>
     </div>
   </nav>
