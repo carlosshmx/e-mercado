@@ -23,25 +23,27 @@
 
         <!-- barra superior -->
         <ul class="navbar-nav w-100 upper-bar row align-items-center">
-          <li class="nav-item col-md-12 col-lg-2 p-md-0">
+          <li class="nav-item col-md-12 col-lg-3 p-md-0">
             <a class="nav-link active fs-4 fw-bold" href="home.html">e-mercado</a>
           </li>
-          <li class="nav-item col-md-12 col-lg-6">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <li class="nav-item col-md-12 col-lg-7 position-relative">
+            <form class="d-flex justify-content-end" role="search">
+              <input class="form-control me-2" type="search" autocomplete="off" id="searchInput" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
+            <!-- resultado busqueda -->
+            <div class="card position-absolute mt-1 overflow-scroll d-none" id="suggests">
+              
+            </div>
+
           </li>
-          <li class="nav-item col-md-8  col-lg-3">
-            
-          </li>
-          <li class="nav-item d-flex justify-content-end col-md-4 col-lg-1">
+          <li class="nav-item d-flex justify-content-center justify-content-lg-end col-12 col-lg-2">
             <a class="nav-link active" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
           </li>
         </ul>
 
         <!-- barra inferior -->
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 lower-bar justify-content-between">
           <li class="nav-item">
             <a class="nav-link active" href="home.html">Inicio</a>
           </li>
@@ -50,6 +52,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+            
           </li>
         </ul>
 
@@ -97,6 +102,7 @@
         </div>
       </div>
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

@@ -36,6 +36,7 @@ function sortProducts(criteria, array){
 }
 
 async function showProductList(){
+        document.getElementById("p-category-description").innerText = `Aqui veras todos los articulos de la categoria: ${localStorage.getItem("catName")}`
 
         let htmlContentToAppend = "";
         for(product of currentProductsArray){

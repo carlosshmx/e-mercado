@@ -234,3 +234,8 @@ nav i{
 .complete-input{
   visibility: hidden;
 }
+
+#suggests{
+  width: 80%; 
+  max-height: 300px;
+}
