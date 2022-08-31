@@ -1,8 +1,9 @@
 let catID = localStorage.getItem("catID");
+let prodID = localStorage.getItem("prodID");
 const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
 const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
 const PRODUCTS_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
-const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/";
+const PRODUCT_INFO_URL = `https://japceibal.github.io/emercado-api/products/${prodID}.json`;
 const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/";
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
@@ -82,6 +83,15 @@ getJSONData(CATEGORIES_URL)
 /////////////////////////////////////////////////
 
 
+function setProdID(id) {
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html"
+}
+
+
+/////////////////////////////////
+
+
 document.addEventListener("DOMContentLoaded", function(){
   document.querySelector(".lower-bar li:nth-child(4)").innerHTML = `<a class="nav-link active" href="my-profile.html" id="toProfile">${localStorage.getItem("username")}</a>`
   searchInput = document.getElementById("searchInput");
@@ -96,10 +106,11 @@ document.addEventListener("DOMContentLoaded", function(){
     if(searchInput.value){
       allProductList.find((product)=>{
         if((product.name.toLowerCase()).includes(searchInput.value.toLowerCase())){
-          content += `<div class="card-body d-flex align-items-center gap-2">
-                        <img src="${product.image}" style="width: 100px;" alt="">
-                        <h5 class="card-title">${product.name}</h5>
-                      </div>`;
+          content += `<a class="card-body d-flex align-items-center text-body border" href="product-info.html"      onclick=setProdID(${product.id}) style="z-index: 10;">
+                        <img class="p-2" src="${product.image}" style="width: 100px;" alt="">
+                        <h5 class="p-2 card-title">${product.name}</h5>
+                        <p class="ms-auto p-2">${product.currency} $${product.cost} </p>
+                      </a>`;
         }
       })
       if(content == ``){

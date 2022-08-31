@@ -45,7 +45,7 @@ async function showProductList(){
                 ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
         
                 htmlContentToAppend += `
-                    <div onclick="setAutoID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+                    <div onclick=setProdID(${product.id}) class="list-group-item list-group-item-action cursor-active">
                         <div class="row">
                             <div class="col-3">
                                 <img src="${product.image}" alt="${product.name}" class="img-thumbnail">
