@@ -24,29 +24,34 @@
               <h1 class="mb-3">Sing up</h1>
               <hr class="border border-primary border-1 opacity-75 hr-or">
               <div class="row g-3">
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="nombre" class="form-label">Name</label>
                   <input type="text" class="form-control" id="nombre">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="apellido" class="form-label">Last name</label>
                   <input type="text" class="form-control" id="apellido">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-12">
+                <div class="col-12 input-container">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" class="form-control" id="email">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="password1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password1">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
-                <div class="col-sm-6">
+                <div class="col-sm-6 input-container">
                   <label for="password2" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control" id="password2">
+                  <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
                 </div>
     
                 <div class="form-check">
@@ -61,14 +66,12 @@
             </div>
           </div>
 
-          <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+          <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success" style="z-index: 10;">
             <p>Data saved successfully. please wait...</p>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
           </div>
         
           <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
             <p>The information provided does not meet the minimum requirements</p>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
           </div>
     
         </main>
@@ -86,9 +89,19 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-
+  <div id="spinner-wrapper" style="z-index: 8;">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
   <script src="./js/register.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="./js/alerts.js"></script>
+  <script src="./js/init.js"></script>
 </body>
 
 </html>

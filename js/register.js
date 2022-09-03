@@ -1,55 +1,40 @@
-function showAlertSuccess() {
-    document.getElementById("alert-success").classList.add("show");
-}
- 
-function showAlertError() {
-    document.getElementById("alert-danger").classList.add("show");
-}
-
-function hiddeAlertError() {
-    setTimeout( () => document.getElementById("alert-danger").classList.remove("show"), 3000) 
-}
-
-function hiddeAlertSuccess(){
-    setTimeout( () => document.getElementById("alert-success").classList.remove("show"), 3000) 
-}
- 
 function validate(){
-    let inputs = document.querySelectorAll(".form-control");
-    let contrasena1 = document.getElementById("password1").value;
-    let contrasena2 = document.getElementById("password2").value;
-    let check = document.getElementById("terminos").checked;
 
-    inputs.forEach(input => {
-        if(input.value == ""){
+    let inputcontainers = document.querySelectorAll(".input-container");
+    let allwrote = true;
+
+    for(inputcont of inputcontainers){
+      let input = inputcont.querySelector(".form-control")
+        if (input.value == '') {
+            inputcont.querySelector("p").style.visibility = "visible";
+            input.style.border = "solid red 3px";
+            allwrote = false;
             showAlertError();
             hiddeAlertError();
         }
-    });
- 
-    if(contrasena1.length >= 6 && contrasena1 == contrasena2 && check){
-        showAlertSuccess();
-        hiddeAlertSuccess();                                            //simulacion de conexion con servidor
-        setTimeout(()=>window.location.href = "./home.html", 3000);     //luego de espera redirecciona al home
-    }else{
-        showAlertError();
-        hiddeAlertError();
+        else {
+            inputcont.querySelector("p").style.visibility = "hidden";
+            input.style.border = "";
+            
+        }
     }
 
-}
-
-// function restore_alert_login(){
-//     document.querySelector('.alert_login').remove();
-
-//     let content = document.createElement('div');
-//     content.classList.add('alert_login')
-   
-//     content.innerHTML= 
-//     `<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-//         <p>Usuario y/o contraseña incorrectos</p>
-//         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="restore()"></button>
-//     </div>`
+    if(allwrote){
+        let inputs = document.querySelectorAll(".form-control");
+        let contrasena1 = document.getElementById("password1").value;
+        let contrasena2 = document.getElementById("password2").value;
+        let check = document.getElementById("terminos").checked;
     
-//     document.querySelector('main').append(content);
-// }
+        if(contrasena1.length >= 6 && contrasena1 == contrasena2 && check){
+            showAlertSuccess();
+            showSpinner();
+            
+            hiddeAlertSuccess();                                            //simulacion de conexion con servidor
+            setTimeout(()=>window.location.href = "./home.html", 3000);     //luego de espera redirecciona al home
+        }else{
+            showAlertError();
+            hiddeAlertError();
+        }
+    }
+}
 

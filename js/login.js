@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     let inputcontainers = document.querySelectorAll(".input-container");
     let allwrote = true;
-    let alert_msj = document.getElementById("alert-danger");
 
     for(inputcont of inputcontainers){
       let input = inputcont.querySelector(".form-control")
@@ -12,8 +11,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             inputcont.querySelector("p").style.visibility = "visible";
             input.style.border = "solid red 3px";
             allwrote = false;
-            alert_msj.classList.add("show");
-            setTimeout(()=> alert_msj.classList.remove("show"), 3000)
+            showAlertError();
+            hiddeAlertError();
         }
         else {
             inputcont.querySelector("p").style.visibility = "hidden";
@@ -22,6 +21,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     }
     if(allwrote){
+      let username = document.getElementById("username");
+      localStorage.setItem("username", username.value);
       window.location.href = "./home.html";
     }
   });
@@ -38,3 +39,22 @@ function passwordShow(){
   }
 }
 
+
+
+
+
+
+
+
+
+// gapi.load('auth2', function(){
+//   var auth2 = gapi.auth2.init();
+// });
+
+// function onSignIn(googleUser) {
+//   var profile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + profile.getName());
+//   console.log('Image URL: ' + profile.getImageUrl());
+//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }

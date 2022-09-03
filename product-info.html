@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6e71113311.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,10 +20,33 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+      <div class="collapse navbar-collapse flex-column" id="navbarNav">
+
+        <!-- barra superior -->
+        <ul class="navbar-nav w-100 upper-bar row align-items-center">
+          <li class="nav-item col-md-12 col-lg-3 p-md-0">
+            <a class="nav-link active fs-4 fw-bold" href="home.html">e-mercado</a>
+          </li>
+          <li class="nav-item col-md-12 col-lg-7 position-relative">
+            <form class="d-flex justify-content-end" role="search">
+              <input class="form-control me-2" type="search" autocomplete="off" id="searchInput" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+            <!-- resultado busqueda -->
+            <div class="card position-absolute mt-1 overflow-scroll d-none" id="suggests">
+              
+            </div>
+
+          </li>
+          <li class="nav-item d-flex justify-content-center justify-content-lg-end col-12 col-lg-2">
+            <a class="nav-link active" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+
+        <!-- barra inferior -->
+        <ul class="navbar-nav w-100 lower-bar justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Inicio</a>
+            <a class="nav-link active" href="home.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -31,18 +55,29 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            
           </li>
         </ul>
+
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <!-- <div class="container mt-4">
+      <div class="d-flex gap-4">
+        <img src="https://dummyimage.com/600x400" alt="">
+        <div class="d-flex flex-column">
+          <h3 class="p-2">Titulo del prodcuto</h3>
+          <p class="p-2">precio</p>
+          <p class="p-2">descripcion</p>
+          <button type="button" class="mt-auto mb-4 p-2 btn btn-primary">agregar al carrito</button>
+        </div>
       </div>
-    </div>
+    </div> -->
+
+    
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
