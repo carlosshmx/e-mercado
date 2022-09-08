@@ -1,10 +1,11 @@
 let catID = localStorage.getItem("catID");
 let prodID = localStorage.getItem("prodID");
+let username = localStorage.getItem("username");
 const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
 const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
 const PRODUCTS_URL = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 const PRODUCT_INFO_URL = `https://japceibal.github.io/emercado-api/products/${prodID}.json`;
-const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/";
+const PRODUCT_INFO_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${prodID}.json`;
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
@@ -93,10 +94,10 @@ function setProdID(id) {
 
 
 document.addEventListener("DOMContentLoaded", function(){
-  document.querySelector(".lower-bar li:nth-child(4)").innerHTML = `<a class="nav-link active" href="my-profile.html" id="toProfile">${localStorage.getItem("username")}</a>`
-  searchInput = document.getElementById("searchInput");
+  document.querySelector(".lower-bar li:nth-child(4)").innerHTML = `<a class="nav-link active" href="my-profile.html" id="toProfile">${username}</a>`
 
   
+  searchInput = document.getElementById("searchInput");
   searchInput.addEventListener('keyup', (event) => {
     document.getElementById("suggests").classList.remove("d-none")
     let suggests = document.getElementById("suggests")
