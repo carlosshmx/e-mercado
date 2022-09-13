@@ -42,6 +42,21 @@ function showComments() {
   med_score = Math.round(scoreSum/commemts.length);
 
 }
+  
+function showRelatedProducts(){
+  let htmlContentToAppend = "";
+
+  product_info.data.relatedProducts.forEach((elem) => {
+    htmlContentToAppend +=`
+      <div class="d-flex flex-column align-items-center list-group-item list-group-item-action cursor-active mb-0" onclick=setProdID(${elem.id})>
+        <img src="${elem.image}" class="img-fluid" alt="">
+        <p class="fs-4 mt-2 mb-0">${elem.name}</p>
+      </div>
+    `
+  })
+  document.querySelector(".related_products").innerHTML = htmlContentToAppend;
+
+}
 
 function showProduct(){
   document.querySelector(".product_info").innerHTML = `
@@ -101,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (resultObj.status === "ok") {
           product_info = resultObj;
           showProduct();
+          showRelatedProducts();
         }
       });
     }
