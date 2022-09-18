@@ -66,8 +66,8 @@ function showRelatedProducts() {
 
 function showProduct() {
   document.querySelector(".product_info").innerHTML = `
-  <div class="mt-4 container">
-    <div class="row">
+  <div class="mt-4 row mx-auto">
+    <div class="col-12 row mx-auto">
   
       <div id="carouselExampleCaptions" class="col-sm-12 col-lg-8 carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
@@ -104,7 +104,7 @@ function showProduct() {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="border col-sm-12 col-lg-4 d-flex flex-column">
+      <div class=" col-sm-12 col-lg-4 d-flex flex-column border">
         <p class="mb-0 mt-2">Vendidos: ${product_info.data.soldCount}</p>
         <h4 class="pt-2">${product_info.data.name}</h4>
       <div class="d-flex">
