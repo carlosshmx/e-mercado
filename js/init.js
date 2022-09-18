@@ -81,9 +81,9 @@ getJSONData(CATEGORIES_URL)
       })
 });
 
-/////////////////////////////////////////////////
+////////////////////////////////////
 
-
+// funcion que establece el id del articulo seleccionado
 function setProdID(id) {
   localStorage.setItem("prodID", id);
   window.location = "product-info.html"

@@ -35,6 +35,7 @@ function sortProducts(criteria, array){
     return result;
 }
 
+// funcion que crea el contenedor de cada uno de los productos de la categoria seleccionada
 async function showProductList(){
         document.getElementById("p-category-description").innerText = `Aqui veras todos los articulos de la categoria: ${localStorage.getItem("catName")}`
 
