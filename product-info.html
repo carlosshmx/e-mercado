@@ -98,21 +98,30 @@
             
           </div>
           <div class="new_coment mt-4">
-            <h3>Comentar</h3>
-            <form action="">
-              <p>Tu opinión:</p>
-              <textarea name="" cols="40" rows="5" id="new_description"> </textarea>
-              <p>Tu puntuación:</p>
-              <select name="" id="new_score">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <button id="send_opinion">Enviar</button>
+            <div class="d-flex align-items-center gap-3 ">
+              <h4 class="my-auto">Califica el articulo: </h4>
+              <div>
+                <span class="opinion_star fa fa-star"></span>
+                <span class="opinion_star fa fa-star"></span>
+                <span class="opinion_star fa fa-star"></span>
+                <span class="opinion_star fa fa-star"></span>
+                <span class="opinion_star fa fa-star"></span>
+              </div>
+              
+            </div>
+
+            <p class="mb-0 invisible opinion_error" style="color: red; font-size: small">Seleccione su calificación</p>
+
+            <form class="mb-3" action="">
+              <div class="form-floating d-flex">
+                <textarea class="form-control" placeholder="Leave a comment here" id="new_description" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Tu opinión:</label>
+              </div>
+              <div class="row justify-content-center">
+                <button id="send_opinion" type="button" class=" col-11 col-md-6 col-lg-4 mt-2 btn btn-primary fw-bold">Enviar</button>
+              </div>
             </form>
-            
+
           </div>
         </div>
 
