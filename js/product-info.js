@@ -23,11 +23,12 @@ function showComments() {
   commemts.forEach((elem) => {
     htmlContentToAppend += `
           <div class="list-group-item">
-            <div class="d-flex">
-              <p><b>${elem.user}</b></p>
-              <p class="mx-1">-</p>
-              <p>${elem.dateTime}</p>
-              <p class="mx-1">-</p>
+            <div class="d-flex justify-content-between flex-column flex-md-row ">
+              <div class="d-flex">
+                <p><b>${elem.user}</b></p>
+                <p class="mx-1">-</p>
+                <p class="fw-lighter">${elem.dateTime}</p>
+              </div>
               <div>
                 ${buildStarScore(elem.score)}
               </div>
@@ -66,44 +67,45 @@ function showRelatedProducts() {
 
 function showProduct() {
   document.querySelector(".product_info").innerHTML = `
+
   <div class="mt-4 row mx-auto">
     <div class="col-12 row mx-auto">
-  
-      <div id="carouselExampleCaptions" class="col-sm-12 col-lg-8 carousel slide" data-bs-ride="false">
+
+        <div id="carouselExampleDark" class="col-sm-12 col-lg-8 carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
-      <div class="carousel-inner">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="${product_info.data.images[0]}" class="d-block w-100" alt="...">
+          </div>
 
-      <div class="carousel-item active">
-        <img src="${product_info.data.images[0]}" class="d-block w-100" alt="...">
-      </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="${product_info.data.images[1]}" class="d-block w-100" alt="...">
+          </div>
 
-      <div class="carousel-item">
-        <img src="${product_info.data.images[1]}" class="d-block w-100" alt="...">
-      </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="${product_info.data.images[2]}" class="d-block w-100" alt="...">
+          </div>
 
-      <div class="carousel-item">
-        <img src="${product_info.data.images[2]}" class="d-block w-100" alt="...">
-      </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="${product_info.data.images[3]}" class="d-block w-100" alt="...">
+          </div>
 
-      <div class="carousel-item">
-        <img src="${product_info.data.images[3]}" class="d-block w-100" alt="...">
-      </div>
-      
-      </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+
       <div class=" col-sm-12 col-lg-4 d-flex flex-column border">
         <p class="mb-0 mt-2">Vendidos: ${product_info.data.soldCount}</p>
         <h4 class="pt-2">${product_info.data.name}</h4>
