@@ -98,9 +98,7 @@ function signOut(){
 }
 
 
-// `<a class="nav-link active" href="my-profile.html" id="toProfile">${username}</a>`
-
-
+//Dropdown de opciones de usuario
 document.addEventListener("DOMContentLoaded", function(){
   document.querySelector(".lower-bar li:nth-child(4)").innerHTML = 
 

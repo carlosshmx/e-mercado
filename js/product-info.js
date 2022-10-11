@@ -3,7 +3,7 @@ let product_info = {};
 let med_score;
 let opinion_Score = 0;
 
-// construye la calicacion de estrellas en base al score iungresado
+// construye la calificacion de estrellas en base al score iungresado
 function buildStarScore(score) {
   let stars = ``;
   for (let i = 1; i <= score; i++) {
