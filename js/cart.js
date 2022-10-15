@@ -1,41 +1,47 @@
-let cart_data = []
+
 
 function changeQty(articleIndex, productID, priceID){
     let qtyImput = document.getElementById(productID)
     let price = document.getElementById(priceID);
 
-    price.innerText = qtyImput.value * articles.data.articles[articleIndex].unitCost
+    price.innerText = qtyImput.value * cart_info.articles[articleIndex].unitCost
 
 }
 
-document.addEventListener("DOMContentLoaded", async()=>{
+function removeCartItem(id){
+  for(let i=0; i<cart_info.articles.length; i++){
+    if(cart_info.articles[i].id == id){
+      console.log(id)
+      cart_info.articles.slice(i,1);
 
-    localStorage.setItem("userID", 25801)
+      window.location = "cart.html"
+      }
+  }
 
-    articles = await getJSONData(CART_INFO_URL);
+}
 
-    console.log(articles.data.articles[0])
+function showCart(){
+  let htmlContentToAppend = ""
 
-    let htmlContentToAppend = ""
+    for(let i=0; i< cart_info.articles.length; i++){
+      htmlContentToAppend += `
+      <tr>
+      <td class="align-middle"> <img src="${cart_info.articles[i].image}" alt="" style="width: 100px;"> </td>
+      <td class="align-middle">${cart_info.articles[i].name}</td>
+      <td class="align-middle">${cart_info.articles[i].currency} ${cart_info.articles[i].unitCost}</td>
+      <td class="align-middle"><input type="number" id="product${i}" class="form-control" value="1" onchange="changeQty(${i}, 'product${i}', 'price${i}')"  style="width: 100px">
+      </td>
+      <td class="align-middle"> <b class="d-flex">${cart_info.articles[i].currency} <p id="price${i}" class="ms-2">${cart_info.articles[i].unitCost}</p></b>  </td>
+      <td class="align-middle cursor-active" onclick="removeCartItem(${cart_info.articles[i].id})"><i class="fa-solid fa-trash text-secondary"></i></a></td>
+    </tr>
+      `
 
-    for(article of articles.data.articles){
-        htmlContentToAppend += `
-        <tr>
-        <td class="align-middle"> <img src="${article.image}" alt="" style="width: 150px;"> </td>
-        <td class="align-middle">${article.name}</td>
-        <td class="align-middle">${article.currency} ${article.unitCost}</td>
-        <td class="align-middle">  
-          <div class="input-group">
-            <input type="number" id="product1" class="form-control" value="1" onchange="changeQty(0, 'product1', 'price1')" style="width: 50%;">
-            </div>
-        </td>
-        <td class="align-middle"> ${article.currency} <p id="price1">${article.unitCost}</p> </td>
-      </tr>
-        `
+  }
+  document.getElementById("cart_sumary").innerHTML= htmlContentToAppend;
 
-    }
-    document.getElementById("cart_sumary").innerHTML= htmlContentToAppend;
-
+}
 
 
-})
+
+
+

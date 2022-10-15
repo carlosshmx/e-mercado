@@ -117,11 +117,30 @@ function showProduct() {
         <p class="p-2">${product_info.data.description}</p>
         <p class="p-2" style="color: green;"><i class="fa-solid fa-truck"></i> Envios gratis a todo el pais</p>
 
-        <button type="button" class="mt-auto mb-4 p-2 btn btn-primary fw-bold">Agregar al carrito</button>
+        <button type="button" class="mt-auto mb-4 p-2 btn btn-primary fw-bold" onclick=addToCart()>Agregar al carrito</button>
       </div>
   </div>
 </div>`;
 
+}
+
+function addToCart(){
+    let infoToCart = {
+      id: product_info.data.id,
+      name: product_info.data.name,
+      count: 1,
+      unitCost: product_info.data.cost,
+      currency: product_info.data.currency,
+      image: product_info.data.images[0]
+    }
+
+    let cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
+
+    cartContent.push(infoToCart);
+ 
+    localStorage.setItem("cart", JSON.stringify(cartContent));
+
+    window.location = "cart.html"
 }
 
 document.addEventListener("DOMContentLoaded", function () {

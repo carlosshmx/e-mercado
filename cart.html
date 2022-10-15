@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6e71113311.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -74,6 +75,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Subtotal</th>
+            <th scope="col"> </th>
           </tr>
         </thead>
         <tbody id="cart_sumary">
@@ -82,10 +84,36 @@
         </tbody>
       </table>
 
+      <fieldset class="mt-4">
+        <legend>Tipo de envio</legend>
+        <input type="radio" name="action" id="premiumDelivery" value="premiumDelivery" /><label for="premiumDelivery" class="ms-2">Premium 2 a 5 dias (15%)</label><br />
+        <input type="radio" name="action" id="expressDelivery" value="expressDelivery"  /><label for="expressDelivery" class="ms-2">Express 5 a 8 dias (7%)</label><br />
+        <input type="radio" name="action" id="standarDelivery" value="standarDelivery" /><label for="standarDelivery" class="ms-2">Standar 12 a 15 dias(5%)</label><br />
+      </fieldset>
+
+      <form action="" class="mt-4">
+        <h4>Dirección de envio</h4>
+        <div class="row">
+          <div class="col-6 mt-3">
+            <label for="streetDelivery">Calle</label>
+            <input type="text" id="streetDelivery" class="form-control">
+          </div>
+          <div class="col-4 mt-3">
+            <label for="streetNumberDelivery">Numero</label>
+            <input type="text" id="streetNumberDelivery" class="form-control">
+          </div>
+          <div class="col-6 mt-3">
+            <label for="streetCornerDelivery">Esquina</label>
+            <input type="text" id="streetCornerDelivery" class="form-control">
+          </div>
+          
+        </div>
+        
+      </form>
+
 
     </div>
     
-
 
 
   </main>
