@@ -85,32 +85,33 @@ getJSONData(CATEGORIES_URL)
 
 
 //Cargar los articulos del carrito en local storage
-var cart_info = [];
+// var cart_info = [];
 
-localStorage.setItem("userID", 25801)
+// localStorage.setItem("userID", 25801)
 
-document.addEventListener("DOMContentLoaded", function (){
+// document.addEventListener("DOMContentLoaded", function (){
 
-    getJSONData(CART_INFO_URL).then( function (resultObj){
-      if (resultObj.status === "ok") {
-        cart_info = resultObj.data;
+//       // getJSONData(CART_INFO_URL).then( function (resultObj){
+//       //   if (resultObj.status === "ok") {
+//       //     cart_info = resultObj.data;
 
-        //comprueba si existen articulos en el local storage y los agrega a los obtenidos de la api
-        if(localStorage.getItem("cart")){
-          cart_info.articles = cart_info.articles.concat(JSON.parse(localStorage.getItem("cart"))) ;
-        }
+//       //     //comprueba si existen articulos en el local storage y los agrega a los obtenidos de la api
+//       //     if(localStorage.getItem("cart")){
+//       //       cart_info.articles = cart_info.articles.concat(JSON.parse(localStorage.getItem("cart"))) ;
+//       //     }
 
-        try{
-          showCart()
-        }
-        catch{
+//       //     try{
+//       //       showCart()
+//       //       updateCartTotal()
+//       //     }
+//       //     catch{
 
-        }
-        
-    }})
+//       //     }
+          
+//       // }})
 
 
-})
+// })
 
 // funcion que establece el id del articulo seleccionado
 function setProdID(id) {
