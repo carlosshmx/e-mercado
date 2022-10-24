@@ -3,6 +3,7 @@ let subTotalPesos = 0;
 let subTotalUsd = 0;
 let total = 0;
 let deliveryFee = 0;
+let paymentMethod = "No se ha seleccionado";
 
 function resetTotals(){
     subTotalPesos = 0;
@@ -102,14 +103,44 @@ function showCart(){
 
 }
 
+
+
 document.addEventListener("DOMContentLoaded", ()=>{
   showCart()
 
-  let radios = document.querySelectorAll('input[type=radio][name="deliverySelection"]');
-    radios.forEach(radio => radio.addEventListener('change', () => {
+  let deliveyRadios = document.querySelectorAll('input[type=radio][name="deliverySelection"]');
+    deliveyRadios.forEach(radio => radio.addEventListener('change', () => {
       updateCartTotal()
     }));
 
+  let paymentRadios = document.querySelectorAll('input[type=radio][name="paymentSelection"]');
+  
+    paymentRadios.forEach(radio => radio.addEventListener('change', () => {
+      if(radio.value == "creditCard"){
+        document.getElementById("creditCardInformation").removeAttribute("disabled");
+        document.getElementById("bankTransferInformation").setAttribute("disabled", "");
+        paymentMethod = "Tarjeta de crédito"
+      }else{
+        document.getElementById("bankTransferInformation").removeAttribute("disabled");
+        document.getElementById("creditCardInformation").setAttribute("disabled", "");
+        paymentMethod = "Transferencia bancaria"
+      }
+    }));
+
+    let paymentModalForm = document.getElementById("paymentModal").addEventListener("submit", (event)=>{
+      event.preventDefault();
+      document.getElementById("selected-payment").innerText = paymentMethod;
+      let modalSubmitAlert = document.getElementById("modalSubmitAlert")
+      if(paymentMethod == "No se ha seleccionado"){
+        modalSubmitAlert.classList.remove("visually-hidden")
+      }else{
+        modalSubmitAlert.classList.add("visually-hidden")
+      }
+      
+      
+    })
+
+  
 
 })
 
