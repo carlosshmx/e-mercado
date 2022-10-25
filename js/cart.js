@@ -90,9 +90,12 @@ function showCart(){
       <td class="align-middle"> <img src="${cartContent[i].image}" alt="" style="width: 100px;"> </td>
       <td class="align-middle">${cartContent[i].name}</td>
       <td class="align-middle">${cartContent[i].currency} ${cartContent[i].unitCost}</td>
-      <td class="align-middle"><input type="number" id="qtyID${cartContent[i].id}" class="form-control" value="${cartContent[i].count}" onchange="changeQty(${cartContent[i].id}, 'qtyID${cartContent[i].id}', 'subtotalID${cartContent[i].id}')"  style="width: 100px">
+      <td class="align-middle"><input type="number" id="qtyID${cartContent[i].id}" class="form-control" value="${cartContent[i].count}" onchange="changeQty(${cartContent[i].id}, 'qtyID${cartContent[i].id}', 'subtotalID${cartContent[i].id}')"  style="width: 100px" min="1" required>
+      <div class="invalid-feedback">
+      Ingrese cantidad mayor a 0
+      </div> 
       </td>
-      <td class="align-middle"> <b class="d-flex">${cartContent[i].currency} <p id="subtotalID${cartContent[i].id}" class="ms-2">${cartContent[i].unitCost}</p></b>  </td>
+      <td class="align-middle"> <b class="d-flex">${cartContent[i].currency} <p id="subtotalID${cartContent[i].id}" class="ms-2">${cartContent[i].unitCost}</p></b> </td>
       <td class="align-middle cursor-active" onclick="removeCartItem(${cartContent[i].id})"><i class="fa-solid fa-trash text-secondary"></i></a></td>
     </tr>
       `
@@ -100,6 +103,28 @@ function showCart(){
   }
   document.getElementById("cart_sumary").innerHTML= htmlContentToAppend;
   updateCartTotal()
+
+}
+
+
+function verifyCarInfo(){
+  let cartContent = JSON.parse(localStorage.getItem("cart"));
+  cartContent.forEach(article => {
+    if(parseInt(article.count) <= 0){
+      console.log("La cantidad de cada articulo debe ser mayor a 0")
+    }
+  })
+
+  // if(allok){
+  //   document.getElementById("generalForm").submit()
+  // }
+
+  let noSelectedPayment = document.getElementById("noSelectedPayment")
+      if(paymentMethod == "No se ha seleccionado"){
+        noSelectedPayment.classList.remove("visually-hidden")
+      }else{
+        noSelectedPayment.classList.add("visually-hidden")
+      }
 
 }
 
@@ -115,7 +140,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   let paymentRadios = document.querySelectorAll('input[type=radio][name="paymentSelection"]');
   
-    paymentRadios.forEach(radio => radio.addEventListener('change', () => {
+  paymentRadios.forEach(radio => radio.addEventListener('change', () => {
       if(radio.value == "creditCard"){
         document.getElementById("creditCardInformation").removeAttribute("disabled");
         document.getElementById("bankTransferInformation").setAttribute("disabled", "");
@@ -127,7 +152,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
       }
     }));
 
-    let paymentModalForm = document.getElementById("paymentModal").addEventListener("submit", (event)=>{
+  document.getElementById("paymentModal").addEventListener("submit", (event)=>{
       event.preventDefault();
       document.getElementById("selected-payment").innerText = paymentMethod;
       let modalSubmitAlert = document.getElementById("modalSubmitAlert")
@@ -135,10 +160,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
         modalSubmitAlert.classList.remove("visually-hidden")
       }else{
         modalSubmitAlert.classList.add("visually-hidden")
-      }
-      
-      
+      }  
     })
+  
+  document.getElementById("generalForm").addEventListener("submit", (event)=>{
+      event.preventDefault();
+      verifyCarInfo()
+      
+      
+
+
+  })
 
   
 
