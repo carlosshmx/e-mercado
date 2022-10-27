@@ -107,25 +107,38 @@ function showCart(){
 }
 
 
-function verifyCarInfo(){
-  let cartContent = JSON.parse(localStorage.getItem("cart"));
-  cartContent.forEach(article => {
-    if(parseInt(article.count) <= 0){
-      console.log("La cantidad de cada articulo debe ser mayor a 0")
-    }
-  })
+// function verifyCarInfo(){
+//   let cartContent = JSON.parse(localStorage.getItem("cart"));
+//   cartContent.forEach(article => {
+//     if(parseInt(article.count) <= 0){
+//       console.log("La cantidad de cada articulo debe ser mayor a 0")
+//     }
+//   })
 
-  // if(allok){
-  //   document.getElementById("generalForm").submit()
-  // }
+//   // if(allok){
+//   //   document.getElementById("generalForm").submit()
+//   // }
 
-  let noSelectedPayment = document.getElementById("noSelectedPayment")
-      if(paymentMethod == "No se ha seleccionado"){
-        noSelectedPayment.classList.remove("visually-hidden")
-      }else{
-        noSelectedPayment.classList.add("visually-hidden")
-      }
+//   let noSelectedPayment = document.getElementById("noSelectedPayment")
+//       if(paymentMethod == "No se ha seleccionado"){
+//         noSelectedPayment.classList.remove("visually-hidden")
+//       }else{
+//         noSelectedPayment.classList.add("visually-hidden")
+//       }
 
+// }
+
+function selectedPaymentError(status){
+  if(status){
+    document.getElementById("noSelectedPayment").classList.remove("visually-hidden");
+  }else{
+    document.getElementById("noSelectedPayment").classList.add("visually-hidden");
+  }
+}
+
+function simulatePuerchaseLoading(){
+    showSpinner();
+    setTimeout(() => {hideSpinner(); showAlertSuccess(); hiddeAlertSuccess()}, 3000)   
 }
 
 
@@ -154,26 +167,47 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   document.getElementById("paymentModal").addEventListener("submit", (event)=>{
       event.preventDefault();
-      document.getElementById("selected-payment").innerText = paymentMethod;
+
+      let paymentModal = document.getElementById("paymentModal")
       let modalSubmitAlert = document.getElementById("modalSubmitAlert")
+
       if(paymentMethod == "No se ha seleccionado"){
         modalSubmitAlert.classList.remove("visually-hidden")
+        modalSubmitAlert.classList.add("text-danger")
       }else{
         modalSubmitAlert.classList.add("visually-hidden")
+        if(paymentModal.checkValidity()){
+          modalSubmitAlert.innerText = "Información guardada"
+          modalSubmitAlert.classList.remove("visually-hidden","text-danger")
+          modalSubmitAlert.classList.add("text-success")
+          document.getElementById("noSelectedPayment").classList.add("visually-hidden")
+          document.getElementById("selected-payment").innerText = paymentMethod;
+        }else{
+          modalSubmitAlert.innerText = "Ingrese informació valida"
+          modalSubmitAlert.classList.remove("visually-hidden", "text-success")
+          modalSubmitAlert.classList.add("text-danger")
+        }
       }  
     })
   
   document.getElementById("generalForm").addEventListener("submit", (event)=>{
       event.preventDefault();
-      verifyCarInfo()
-      
-      
+
+      let generalForm = document.getElementById("generalForm")
+
+      if(generalForm.checkValidity() && paymentMethod != "No se ha seleccionado"){
+        selectedPaymentError(false)
+        simulatePuerchaseLoading()
+        
+      }else{
+        selectedPaymentError(true)
+        showAlertError();
+        hiddeAlertError();
+
+      }
 
 
   })
-
-  
-
 })
 
 

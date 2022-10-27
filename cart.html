@@ -216,14 +216,14 @@
         
         
         <div class="d-grid gap-2 mt-4">
-          <button class="btn btn-primary" type="submit" id="purchaseButton">Finalizar compra</button>
+          <button class="btn btn-primary" type="submit">Finalizar compra</button>
 
         </div>
       </form>
 
 
       <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" style="z-index: 1050;"aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form class="modal-content needs-validation" id="paymentModal" novalidate>
             <div class="modal-header">
@@ -290,7 +290,7 @@
 
             </div>
             <div class="modal-footer">
-              <p class="text-danger visually-hidden" id="modalSubmitAlert">Seleccione un metodo de pago</p>
+              <p class="visually-hidden" id="modalSubmitAlert">Seleccione un método de pago</p>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary" id="savePayment">Guardar</button>
             </div>
@@ -300,7 +300,13 @@
 
 
 
-
+      <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+        <p>Has comprado con exito.</p>
+      </div>
+    
+      <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+        <p>Por favor complete la informacion requerida</p>
+      </div>
     </main>
     <footer class="text-muted">
       <div class="container">
@@ -331,5 +337,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/alerts.js"></script>
   </body>
 </html>
