@@ -124,23 +124,33 @@ function showProduct() {
 
 }
 
+function checkCart(product_id){     //Recibe el id de un articulo, si exite en el carrito retorna la posicion en el array, sino retorna -1
+  
+  var cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
+  var pos = cartContent.findIndex(i => i.id === product_id)
+  return pos
+}
+
 function addToCart(){
-    let infoToCart = {
+
+  var cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
+
+  if(checkCart(product_info.data.id) >= 0){
+    cartContent[checkCart(product_info.data.id)].count += 1;
+  }else{
+    var infoToCart = {
       id: product_info.data.id,
       name: product_info.data.name,
       count: 1,
-      unitCost: product_info.data.cost,
-      currency: product_info.data.currency,
+       unitCost: product_info.data.cost,
+       currency: product_info.data.currency,
       image: product_info.data.images[0]
     }
 
-    let cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
-
-    cartContent.push(infoToCart);
- 
-    localStorage.setItem("cart", JSON.stringify(cartContent));
-
-    window.location = "cart.html"
+    cartContent.push(infoToCart)
+  }
+  localStorage.setItem("cart", JSON.stringify(cartContent));
+  window.location = "cart.html"
 }
 
 document.addEventListener("DOMContentLoaded", function () {

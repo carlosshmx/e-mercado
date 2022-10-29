@@ -66,15 +66,12 @@ function changeQty(id, qtyID, subtotalID){
 }
 
 
-function removeCartItem(id){
-  for(let i=0; i<cart_info.articles.length; i++){
-    if(cart_info.articles[i].id == id){
-      console.log(id)
-      cart_info.articles.slice(i,1);
-
-      window.location = "cart.html"
-      }
-  }
+function removeCartItem(product_id){
+  var cartContent = JSON.parse(localStorage.getItem("cart"))
+  var pos = cartContent.findIndex(i => i.id === product_id)
+  cartContent.splice(pos, pos+1);
+  localStorage.setItem("cart", JSON.stringify(cartContent));
+  showCart();
 
 }
 
@@ -106,27 +103,6 @@ function showCart(){
 
 }
 
-
-// function verifyCarInfo(){
-//   let cartContent = JSON.parse(localStorage.getItem("cart"));
-//   cartContent.forEach(article => {
-//     if(parseInt(article.count) <= 0){
-//       console.log("La cantidad de cada articulo debe ser mayor a 0")
-//     }
-//   })
-
-//   // if(allok){
-//   //   document.getElementById("generalForm").submit()
-//   // }
-
-//   let noSelectedPayment = document.getElementById("noSelectedPayment")
-//       if(paymentMethod == "No se ha seleccionado"){
-//         noSelectedPayment.classList.remove("visually-hidden")
-//       }else{
-//         noSelectedPayment.classList.add("visually-hidden")
-//       }
-
-// }
 
 function selectedPaymentError(status){
   if(status){
