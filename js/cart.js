@@ -57,6 +57,13 @@ function removeCartItem(product_id){
 
 function showCart(){    //Recorre el carrito y renderiza cada articulo tomando sus propiedades y creando filas de la tabla.
   let cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
+
+  if(cartContent.length == 0){document.getElementById("generalForm").innerHTML = `
+  <div class="d-flex mt-4 align-items-center flex-column fw-bold"> 
+    <p>No hay articulos en su carrito</p>
+    <p>Explora la catregorias <a href="./categories.html">aqui</a></p> 
+  </div> `; return}
+
   let htmlContentToAppend = ""
 
   cartContent.forEach(article => {
@@ -91,7 +98,6 @@ function simulatePuerchaseLoading(){  //Simula el tiempo de carga de una compra.
 
 //Ejecuta cuando el documento está cargado
 document.addEventListener("DOMContentLoaded", ()=>{
-  showCart()
 
   let deliveyRadios = document.querySelectorAll('input[type=radio][name="deliverySelection"]');  //Le asigna acciones a los radios, cuando se cambian, actualiza el precio
     deliveyRadios.forEach(radio => radio.addEventListener('change', () => {
@@ -148,6 +154,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
           hiddeAlertError();
         }
     })
+
+  showCart()
 })
 
 
