@@ -124,14 +124,14 @@ function showProduct() {
 
 }
 
-function checkCart(product_id){     //Recibe el id de un articulo, si exite en el carrito retorna la posicion en el array, sino retorna -1
+function checkCart(product_id){  //Recibe el id de un articulo, si exite en el carrito retorna la posicion en el array, sino retorna -1
   
   var cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
   var pos = cartContent.findIndex(i => i.id === product_id)
   return pos
 }
 
-function addToCart(){
+function addToCart(){  //Verifica si el articulo que se esta visualizando ya esta en el carrito, si es asi, suma 1 al count del articulo existente, sino agrega al carrito el articulo que se esta visualizando
 
   var cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
 
@@ -152,6 +152,8 @@ function addToCart(){
   localStorage.setItem("cart", JSON.stringify(cartContent));
   window.location = "cart.html"
 }
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
