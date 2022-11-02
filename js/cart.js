@@ -58,11 +58,12 @@ function removeCartItem(product_id){
 function showCart(){    //Recorre el carrito y renderiza cada articulo tomando sus propiedades y creando filas de la tabla.
   let cartContent = localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")) : [];
 
-  if(cartContent.length == 0){document.getElementById("generalForm").innerHTML = `
+  //Si el carro esta vacio, solo muestra el html a continuacion:
+  if(cartContent.length == 0){document.getElementById("generalForm").innerHTML = ` 
   <div class="d-flex mt-4 align-items-center flex-column fw-bold"> 
     <p>No hay articulos en su carrito</p>
     <p>Explora la catregorias <a href="./categories.html">aqui</a></p> 
-  </div> `; return}
+  </div> `; return}   
 
   let htmlContentToAppend = ""
 
