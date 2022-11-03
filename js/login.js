@@ -1,30 +1,24 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-  document.querySelector("form").addEventListener("submit", (checkdata) =>{
-    checkdata.preventDefault();
+  document.querySelector("form").addEventListener("submit", (event) =>{
+    event.preventDefault();
 
-    let inputcontainers = document.querySelectorAll(".input-container");
-    let allwrote = true;
+    let userEmail = document.getElementById("userEmail").value
+    let userEmailLocal = localStorage.getItem("user")? JSON.parse(localStorage.getItem("user")).email : " ";
 
-    for(inputcont of inputcontainers){
-      let input = inputcont.querySelector(".form-control")
-        if (input.value == '') {
-            inputcont.querySelector("p").style.visibility = "visible";
-            input.style.border = "solid red 3px";
-            allwrote = false;
-            showAlertError();
-            hiddeAlertError();
-        }
-        else {
-            inputcont.querySelector("p").style.visibility = "hidden";
-            input.style.border = "";
-            
-        }
+    if(document.getElementById("login").checkValidity()){
+      if(userEmail == userEmailLocal){
+        window.location = "./home.html"
+      }else{
+        showAlertError();
+        hiddeAlertError();
+      }
+      
+    }else{
+      showAlertError();
+      hiddeAlertError();
     }
-    if(allwrote){
-      let username = document.getElementById("username");
-      localStorage.setItem("username", username.value);
-      window.location.href = "./home.html";
-    }
+    
+
   });
 
   
@@ -41,7 +35,22 @@ function passwordShow(){
 
 
 
+//Codigo de validacion Bootstrap
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+var forms = document.querySelectorAll('.needs-validation')
 
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
 
 
 

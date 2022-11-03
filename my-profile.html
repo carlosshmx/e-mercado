@@ -77,10 +77,75 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <form class=" container mx-auto row mt-4 needs-validation" id="profileForm" novalidate>
+      <div class="col">
+        <div class="d-flex justify-content-between position-relative">
+          <h1 class="">Perfil</h1>
+          <img src="./img/img_perfil.png" class="position-absolute" id="profilePicture" alt="">
+        </div>
+       
+        <hr class="border border-primary border-1 opacity-75 hr-or">
+        <div class="row g-3">
+          <div class="col-sm-6 input-container">
+            <label for="name1" class="form-label d-flex">Primer nombre <span class="text-danger fw-bold"><b>*</b></span></label>
+            <input type="text" class="form-control" id="name1" required>
+            <div class="invalid-feedback">
+              Introduzca un nombre
+            </div>
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="name2" class="form-label">Segundo nombre</label>
+            <input type="text" class="form-control" id="name2">
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="lastname1" class="form-label">Primer apellido <span class="text-danger fw-bold"><b>*</b></span></label>
+            <input type="text" class="form-control" id="lastname1" required>
+            <div class="invalid-feedback">
+              Introduzca un apellido
+            </div>
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="lastname2" class="form-label">Segundo apellido</label>
+            <input type="text" class="form-control" id="lastname2">
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="email" class="form-label">Email <span class="text-danger fw-bold"><b>*</b></span></label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">
+              Introduzca un email
+            </div>
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="profilePictureInput" class="form-label">Imagen de perfil</label>
+            <input type="file" class="form-control" id="profilePictureInput">
+          </div>
+
+          <div class="col-sm-6 input-container">
+            <label for="phone" class="form-label">Telefono de contacto</label>
+            <input type="text" class="form-control" id="phone">
+          </div>
+
+
+
+
+          <button class="btn btn-primary mt-5" type="submit" id="saveData" onclick="">Guardar informacion</button>
+
+
+        </div>
       </div>
+    </form>
+
+    <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success" style="z-index: 10;">
+      <p>Informacion Guardada</p>
+    </div>
+  
+    <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+      <p>Complete la información requerida (*)</p>
     </div>
   </main>
   <footer class="text-muted">
@@ -96,6 +161,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="./js/alerts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

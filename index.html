@@ -48,17 +48,22 @@
           </div>
 
           <!-- formulario de inputs de usuario, contraseña y boton login -->
-          <form>
-            <div class="input-container">
-              <label for="usename" class="form-label">Username or Email</label>
-              <input type="text" class="form-control" id="username" placeholder="Username">
-              <p class="d-flex justify-content-end mb-0" style="color: red;font-size: small; visibility: hidden;">Complete</p>
+          <form class="needs-validation" id="login" novalidate>
+            <div class="input-container  mb-3">
+              <label for="usename" class="form-label">Email</label>
+              <input type="text" class="form-control" id="userEmail" placeholder="Username" required>
+              <div class="invalid-feedback">
+                Ingrese email
+              </div>
             </div>
 
-            <div class="input-container">
+            <div class="input-container mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
-              <p class="d-flex justify-content-end mb-0" style="color: red; font-size: small;visibility: hidden;">Complete</p>
+              <input type="password" class="form-control" id="password" placeholder="Password" required>
+              <div class="invalid-feedback">
+                Ingrese contraseña
+              </div>
+
             </div>
 
             <div class="mb-1">
@@ -78,7 +83,7 @@
 
     <div class="alert_login">
       <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-        <p>Incorrect username or password</p>
+        <p id="alertText">Usuario o contraseña incorrecta</p>
       </div>
     </div>
     

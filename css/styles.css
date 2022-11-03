@@ -240,3 +240,22 @@ nav i{
   max-height: 300px;
 }
 
+#profilePicture{
+  border-radius: 60px;
+  width: 120px;
+  height: 120px;
+  background-color: rgb(73, 73, 73);
+  z-index: 100;
+  right: 10px;
+  top: -20px;
+}
+
+@media (max-width: 600px) {
+  #profilePicture{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    right: -10px;
+    top: -20px;
+  }
+}

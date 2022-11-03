@@ -1,6 +1,6 @@
 let catID = localStorage.getItem("catID");
 let prodID = localStorage.getItem("prodID");
-let username = localStorage.getItem("username");
+let userEmail = JSON.parse(localStorage.getItem("user")).email;
 let userID = localStorage.getItem("userID");
 const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
 const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
@@ -83,36 +83,6 @@ getJSONData(CATEGORIES_URL)
 });
 
 
-
-//Cargar los articulos del carrito en local storage
-// var cart_info = [];
-
-// localStorage.setItem("userID", 25801)
-
-// document.addEventListener("DOMContentLoaded", function (){
-
-//       // getJSONData(CART_INFO_URL).then( function (resultObj){
-//       //   if (resultObj.status === "ok") {
-//       //     cart_info = resultObj.data;
-
-//       //     //comprueba si existen articulos en el local storage y los agrega a los obtenidos de la api
-//       //     if(localStorage.getItem("cart")){
-//       //       cart_info.articles = cart_info.articles.concat(JSON.parse(localStorage.getItem("cart"))) ;
-//       //     }
-
-//       //     try{
-//       //       showCart()
-//       //       updateCartTotal()
-//       //     }
-//       //     catch{
-
-//       //     }
-          
-//       // }})
-
-
-// })
-
 // funcion que establece el id del articulo seleccionado
 function setProdID(id) {
   localStorage.setItem("prodID", id);
@@ -123,34 +93,13 @@ function setProdID(id) {
 /////////////////////////////////
 
 function signOut(){
-  localStorage.removeItem("username");
+  localStorage.removeItem("user");
   window.location = "index.html"
 }
 
-
-//Dropdown de opciones de usuario
-document.addEventListener("DOMContentLoaded", function(){
-  document.querySelector(".lower-bar li:nth-child(4)").innerHTML = 
-
-  `<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-  <ul class="navbar-nav">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      ${username}
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
-        <li><a class="dropdown-item" href="./cart.html">Mi carrito</a></li>
-        <li><a class="dropdown-item" href="./my-profile.html">Mi perfil</a></li>
-        <li><a class="dropdown-item" onclick=signOut()>Cerrar sesión</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>`
-
-//Codigo de validacion Bootstrap
+/////////////////////////////////////////////////////////////////////
+  
+searchInput = document//Codigo de validacion Bootstrap
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 var forms = document.querySelectorAll('.needs-validation')
 
@@ -169,10 +118,31 @@ var forms = document.querySelectorAll('.needs-validation')
 
 
 
+//Dropdown de opciones de usuario
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelector(".lower-bar li:nth-child(4)").innerHTML = 
 
-/////////////////////////////////////////////////////////////////////
-  
-  searchInput = document.getElementById("searchInput");
+  `<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+  <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      ${userEmail}
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+        <li><a class="dropdown-item" href="./cart.html">Mi carrito</a></li>
+        <li><a class="dropdown-item" href="./my-profile.html">Mi perfil</a></li>
+        <li><a class="dropdown-item" onclick=signOut()>Cerrar sesión</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>`
+
+
+
+  searchInput =document.getElementById("searchInput");
   searchInput.addEventListener('keyup', (event) => {
     document.getElementById("suggests").classList.remove("d-none")
     let suggests = document.getElementById("suggests")
