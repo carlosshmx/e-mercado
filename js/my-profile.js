@@ -25,9 +25,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             event.preventDefault();
             if(document.getElementById("profileForm").checkValidity()){
                 showAlertSuccess();
-                hiddeAlertSuccess()
+                hiddeAlertSuccess();
                 saveData();
             }else{
+                document.getElementById('alert-text').innerText = "Complete la información requerida (*)";
                 showAlertError();
                 hiddeAlertError();
             }
@@ -39,32 +40,33 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const formData = new FormData();
             formData.append('file', file);
             formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-        
-            const res = await axios.post(CLOUDINARY_URL, formData, {
-                headers:{
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            document.getElementById("profilePicture").src = res.data.secure_url;
-            profile_picture_url = res.data.secure_url;
-            saveData();
 
+            try{
+                const res = await axios.post(CLOUDINARY_URL, formData, {
+                    headers:{
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                document.getElementById("profilePicture").src = res.data.secure_url;
+                profile_picture_url = res.data.secure_url;
+                saveData();
+            }catch{
+                document.getElementById('alert-text').innerText = "Error de conexion";
+                showAlertError();
+                hiddeAlertError();
+            }
         })
     }
 })
 
 
-
-
 function saveData(){
     var localUser = JSON.parse(localStorage.getItem("user"));
-
     localUser.name1 = document.getElementById("name1").value
     localUser.name2 = document.getElementById("name2").value
     localUser.lastname1 = document.getElementById("lastname1").value
     localUser.lastname2 = document.getElementById("lastname2").value
     localUser.phone = document.getElementById("phone").value
     localUser.profilePic = profile_picture_url;
-
     localStorage.setItem("user" , JSON.stringify(localUser));
 }

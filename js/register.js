@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () =>{
         let password2 = document.getElementById("password2").value
 
         if(document.getElementById("register").checkValidity() && password1 == password2){
-            console.log("listo")
             let user = {
                 email: document.getElementById("email").value,
                 name1: "",
@@ -74,8 +73,9 @@ document.addEventListener("DOMContentLoaded", () =>{
                 profilePic: ""
             }
             localStorage.setItem("user", JSON.stringify(user));
+            window.location = "./home.html"
         }
-        window.location = "./home.html"
+    
         
     })
 
